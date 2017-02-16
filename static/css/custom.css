@@ -1,0 +1,8 @@
+@charset "UTF-8";
+/* CSS Document */
+.navbar {
+    border-radius: 0 !important;
+}
+body {
+    overflow-x: hidden;
+}

@@ -29,6 +29,8 @@ ALLOWED_HOSTS = []
 
 
 # Static File Defined
+LOGIN_REDIRECT_URL = '/'
+
 
 STATIC_URL = 'static/'
 

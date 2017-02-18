@@ -3,17 +3,29 @@
 
 {% block content %}
     <div class="row">
+    {% if user.is_authenticated %}
+        <div class="container-fluid" style="margin-top: -20px;">
+        <div class="jumbotron">
+            <div class="container">
+                <h2>You are already logged in...</h2>
+                <p>Not you?<a href="/logout" class="btn success btn-sm" title="Log out" style="color:#212121;">Log Out</a></p>
+                <br/>
+                <a href="{% url 'home' %}" title="Home" class="btn btn-default">Return Home</a>
+            </div>
+        </div>
+        </div>
+    {% endif %}
+    {% if not request.user.is_authenticated %}
         <div class="container">
               <h2>Login</h2>
   <form method="post">
     {% csrf_token %}
-      <div class="form-control">
           {{ form.as_p }}
-          <button type="submit" class="btn-primary btn" >Login</button>
-      </div>
+          <button type="submit" class="btn-primary btn" >Login&nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></button>
 
   </form>
         </div>
+    {% endif %}
     </div>
 
 {% endblock %}

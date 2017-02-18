@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+  {% if uploaded_file_url %}
+      <div class="container">
+      <div class="alert alert-success" role="alert">
+      <a href="{{ uploaded_file_url }}" class="alert-link">You file has been uploaded to:&nbsp;{{ uploaded_file_url }}</a>
+    </div>
+      </div>
+  {% endif %}
+    <div class="container">
+        <div class="col-md-8">
+            <h2>File Manager</h2>
+        </div>
+        <div class="col-md-4">
+            <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+             <input type="file" name="myfile" id="myfile" class="inputfile" onchange="this.form.submit()" />
+            <label for="myfile" class="btn-primary btn">Upload&nbsp;<i class="fa fa-upload" aria-hidden="true"></i></label>
+          </form>
+        </div>
+    </div>
+
+</div>
+    <div class="row">
+        <div class="container">
+        <div class="list-group">
+          <a href="#" class="list-group-item">Cras justo odio<span class="badge"><i class="fa fa-trash-o" aria-hidden="true"></i></span></a>
+          <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+          <a href="#" class="list-group-item">Morbi leo risus</a>
+          <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+          <a href="#" class="list-group-item">Vestibulum at eros</a>
+        </div>
+        </div>
+    </div>
+
+<div class="container">
+
+  {% if uploaded_file_url %}
+    <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+  {% endif %}
+
+</div>
+
+
+{% endblock %}

@@ -5,9 +5,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Slattery Hub</title>
-
-
+<title>{% block title %} {% endblock %}</title>
 <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicons/apple-touch-icon.png' %}">
 <link rel="icon" type="image/png" href="{% static 'img/favicons/favicon-32x32.png' %}" sizes="32x32">
 <link rel="icon" type="image/png" href="{% static 'img/favicons/favicon-16x16.png' %}" sizes="16x16">
@@ -16,9 +14,8 @@
 <meta name="theme-color" content="#ffffff">
 <!-- Bootstrap -->
 <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}/?v=00007">
-<link rel="stylesheet" href="{% static 'css/custom.css' %}/?v=00005">
-
- <script src="https://use.fontawesome.com/3febcfe3aa.js"></script>
+<link rel="stylesheet" href="{% static 'css/custom.css' %}/?v=00006">
+<link rel="stylesheet" href="{% static 'css/font-awesome-4.7.0/css/font-awesome.min.css' %}">
 </head>
 <body>
 <!-- NAV BAR -->
@@ -38,10 +35,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-        <li><a href="{% url 'file' %}"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></li>
-          <li><a href="{% url 'notes' %}"><i class="fa fa-sticky-note-o" aria-hidden="true"></i></a></li>
-          <li><a href=""><i class="fa fa-shield" aria-hidden="true"></i></a></li>
+        <li><a data-toggle="tooltip" title="Home" data-placement="bottom" href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+        <li><a data-toggle="tooltip" title="Files" data-placement="bottom" href="{% url 'file' %}"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></li>
+        <li><a data-toggle="tooltip" title="Images" data-placement="bottom" href="{% url 'file' %}"><i class="fa fa-picture-o" aria-hidden="true"></i></a></li>
+          <li><a data-toggle="tooltip" title="Notes" data-placement="bottom" href="{% url 'notes' %}"><i class="fa fa-sticky-note-o" aria-hidden="true"></i></a></li>
+           <li><a data-toggle="tooltip" title="Skyward Images" data-placement="bottom" href="{% url 'skyward' %}"><i class="fa fa-jsfiddle" aria-hidden="true"></i></a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -52,7 +50,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user.username }}&nbsp;<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
+            <li><a href="/admin" title="Admin" target="_blank"><i class="fa fa-wrench" aria-hidden="true"></i>&nbsp;Admin</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="/logout">Logout&nbsp;<i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
           </ul>
@@ -74,18 +72,16 @@
 <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="{% static 'js/bootstrap.js' %}"></script>
-<script src="{% static 'js/fileselect.js' %}"></script>
+<script src="{% static 'js/fileselect.js' %}/?=00007"></script>
+    <script src="{% static 'js/tooltip.js' %}"></script>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
 
 {% endblock %}
 
-<!-- Footer -->
-{% block footer %}
-    <footer class="footer">
-       <div class="container" style="margin-top: 10px">
-            &copy;2017 James Slattery
-       </div>
-     </footer>
-{% endblock %}
 
 
 </body>

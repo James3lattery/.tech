@@ -1,50 +1,59 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% block title %}NOTES{% endblock %}
 {% block content %}
     <div class="row">
+    <div class="modal fade" id="newnote" role="dialog">
+      <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Create a New Note...</h4>
+        </div>
+        <div class="modal-body">
+          <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit" class="btn btn-default">Create Note</button>
+
+    </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
         <div class="container-fluid" style="margin-top: -20px;">
             <div class="jumbotron">
                 <div class="container">
                     <div class="col-md-10"><h2>Notes...</h2></div>
-                    <div class="col-md-2"><button class="btn btn-primary">New Note</button></div>
+                    <div class="col-md-2"><button class="btn btn-primary" data-toggle="modal" data-target="#newnote" >New Note</button></div>
                 </div>
             </div>
+
         </div>
     </div>
     <div class="row">
         <div class="container">
-            <div class="col-md-4">
+            {% for note in my_notes %}
+             <div class="col-md-4">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h3 class="panel-title">Panel title</h3>
+                    <h3 class="panel-title">{{ note.title }}n</h3>
                   </div>
                   <div class="panel-body">
-                    Panel content
+                    {{ note.content }}
+                      blah
                   </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">Panel title</h3>
-                  </div>
-                  <div class="panel-body">
-                    Panel content
-                  </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">Panel title</h3>
-                  </div>
-                  <div class="panel-body">
-                    Panel content
-                  </div>
-                </div>
+            {% endfor %}
+
             </div>
         </div>
     </div>
 
-
 {% endblock %}
+

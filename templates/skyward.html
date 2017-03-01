@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}SKYWARD{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <div class="container">
+            <h3>Skyward Image Query</h3>
+            <div class="col-md-4">
+                <input type="number" placeholder="Starting Number" class="form-control start" />
+            </div>
+            <div class="col-md-4">
+                <input type="number" placeholder="Ending Number" class="form-control limit" />
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary querC">Search</button>
+            </div>
+        </div>
+
+    </div>
+<div class="row">
+    <div class="container spawn">
+
+    </div>
+</div>
+</div>
+
+{% endblock %}

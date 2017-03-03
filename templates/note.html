@@ -41,7 +41,8 @@
              <div class="col-md-4">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h3 class="panel-title">{{ note.title }}n</h3>
+                    <h3 class="panel-title">{{ note.title }}<span class="badge pull-right" ><a href="/notes/d/{{ note.pk }}" title="Delete" data-toggle="tooltip" data-placement="right" ><i class="fa fa-trash-o" aria-hidden="true"></i></a></span><span class="pull-right">&nbsp;</span><span class="badge pull-right" ><a href="/notes/u/{{ note.pk }}" title="Edit" data-toggle="tooltip" data-placement="right" ><i class="fa fa-pencil" aria-hidden="true"></i></a></span><span class="pull-right">&nbsp;</span></h3>
+
                   </div>
                   <div class="panel-body">
                     {{ note.content }}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}IMAGES{% endblock %}
+{% block content %}
+
+        <div class="container-fluid" style="margin-top: -20px;background: #ecf0f1;">
+            <div class="jumbotron">
+                <div class="container">
+                    <div class="col-md-10"><h2>Images</h2></div>
+                    <div class="col-md-2"><button class="btn btn-primary" data-toggle="modal" data-target="#newnote" >Upload Image</button></div>
+                </div>
+            </div>
+
+        </div>
+    <div class="container">
+     <form method="POST" enctype="multipart/form-data" >
+        {% csrf_token %}
+        {{ uploadImage.image }}
+    <button type="submit" class="btn btn-default">Upload</button>
+
+    </form>
+    </div>
+{% endblock %}

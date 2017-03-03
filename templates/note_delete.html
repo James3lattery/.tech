@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}NOTE EDIT{% endblock %}
+{% block content %}
+    <div class="container-fluid" style="background: #ecf0f1; margin-top: -20px;">
+        <div class="jumbotron">
+            <div class="container">
+                <h2>Edit Note...</h2>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+    <div class="container">
+        <div class="col-md-4">
+<form action="" method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ note.title }}"?</p>
+    <input type="submit" value="Confirm" />
+</form>
+    </div>
+    </div>
+    </div>
+{% endblock %}

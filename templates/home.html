@@ -12,9 +12,11 @@
     </div>
 
     </div>
+    {% if not user.is_authenticated %}
     <div class="row">
         <div class="container">
             <h3><i class="fa fa-thumb-tack" aria-hidden="true"></i>&nbsp;Notes</h3>
         </div>
     </div>
+    {% endif %}
 {% endblock %}

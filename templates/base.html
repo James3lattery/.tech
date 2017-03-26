@@ -34,6 +34,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    {% if request.user.is_authenticated %}
       <ul class="nav navbar-nav">
         <li><a data-toggle="tooltip" title="Home" data-placement="bottom" href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
         <li><a data-toggle="tooltip" title="Files" data-placement="bottom" href="{% url 'file' %}"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></li>
@@ -41,7 +42,7 @@
           <li><a data-toggle="tooltip" title="Notes" data-placement="bottom" href="{% url 'notes' %}"><i class="fa fa-sticky-note-o" aria-hidden="true"></i></a></li>
            <li><a data-toggle="tooltip" title="Skyward Images" data-placement="bottom" href="{% url 'skyward' %}"><i class="fa fa-jsfiddle" aria-hidden="true"></i></a></li>
       </ul>
-
+    {% endif %}
       <ul class="nav navbar-nav navbar-right">
       {% if not request.user.is_authenticated %}
         <li><a href="/login" >Login&nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></a></li>

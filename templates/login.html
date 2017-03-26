@@ -16,7 +16,12 @@
         </div>
     {% endif %}
     {% if not request.user.is_authenticated %}
-        <div class="container">
+        <style>
+         .btn-primary {
+             width: 100%;
+         }
+        </style>
+        <div class="container" style="width: 20%;">
               <h2>Login</h2>
   <form method="post">
     {% csrf_token %}
